@@ -11,3 +11,8 @@ docker-compose up
 ```
 2) После запуска API будет доступен по следующему адресу:
 http://localhost:8000/api/calculate/
+
+3) Для запуска unit-тестов
+```bash
+docker-compose run web python manage.py test
+```

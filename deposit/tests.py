@@ -10,13 +10,13 @@ class DepositCalculationViewTests(TestCase):
 
     def test_validation_error(self):
         """Тестирование обработки ошибки валидации."""
-        with self.assertRaises(ValueError):
-            response = self.client.post(self.url, {
-                "date": "31.02.2021",  # Неверная дата - в ферале 28 дней
-                "periods": 3,
-                "amount": 100000,
-                "rate": 6
-            })
+        response = self.client.post(self.url, {
+            "date": "31.02.2021",  # Неверная дата - в феврале 28 дней
+            "periods": 3,
+            "amount": 100000,
+            "rate": 6
+        })
+        self.assertEqual(response.status_code, 400)  # Ожидаем, что статус будет 400 Bad Request
 
     def test_boundary_values(self):
         """Тестирование обработки граничных значений."""
