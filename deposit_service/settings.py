@@ -82,7 +82,7 @@ DATABASES = {
         'NAME': 'deposit_service',
         'USER': 'home',
         'PASSWORD': 'home',
-        'HOST': 'localhost',
+        'HOST': 'db',
         'PORT': '5432',
     }
 }
